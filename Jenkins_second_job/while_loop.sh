@@ -1,6 +1,6 @@
 #!/bin/bash
 CNT=0
-while True;
+while true;
 do
     echo "My name is Harish:"
     ((CNT++))
