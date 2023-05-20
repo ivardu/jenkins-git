@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('First Stage'){
             steps{
-                sh "./while_loop.sh"
+                sh "./Jenkins_second_job/while_loop.sh"
             }
         }
     }
