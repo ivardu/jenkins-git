@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('First'){
             steps{
-                ./first_shell.sh
+                sh "./first_shell.sh"
             }
         }
         stage('Second'){
            steps{
-                ./second_shell.sh
+                sh "./second_shell.sh"
            }
         }
         stage('Third'){
             steps{
-                ./third_shell.sh
+                sh "./third_shell.sh"
             }
         }
     }
