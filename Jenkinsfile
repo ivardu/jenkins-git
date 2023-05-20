@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('First'){
             steps{
-                sh "echo ${env.WORKSPACE}"
+                sh "echo WorkSpace directory name: ${env.WORKSPACE}"
+                sh "chmod +x -R ${env.WORKSPACE}"
                 sh "./first_shell.sh"
             }
         }
