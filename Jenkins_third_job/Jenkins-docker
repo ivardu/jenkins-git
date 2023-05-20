@@ -14,18 +14,19 @@ pipeline {
         sh 'docker build -t swamy877/jenkins-docker-hub .'
       }
     }
-    // stage('Login') {
-    //   steps {
-    //     sh 'echo $DOCKERHUB_CREDS_PSW | docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
-    //   }
-    // }
+    stage('Login') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDS_PSW | docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
+      }
+    }
     stage('Push') {
       steps {
-        script {
-                docker.withRegistry( '', DOCKERHUB_CREDS ) {
-                dockerImage.push()
-            }
-        }
+        // script {
+        //         docker.withRegistry( '', DOCKERHUB_CREDS ) {
+        //         dockerImage.push()
+        //     }
+        // }
+        sh 'docker push swamy877/jenkins-docker-hub'
       }
     }
   }
