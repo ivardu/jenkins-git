@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('First'){
             steps{
+                sh "echo ${env.WORKSPACE}"
                 sh "./first_shell.sh"
             }
         }
