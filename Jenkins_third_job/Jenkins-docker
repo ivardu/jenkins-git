@@ -9,6 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'echo "Current working directory:" && pwd && ls -ltr ${env.WORKSPACE}'
         sh 'docker build -t swamy877/jenkins-docker-hub .'
       }
     }
