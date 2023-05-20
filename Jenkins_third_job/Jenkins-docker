@@ -5,6 +5,7 @@ pipeline {
   }
   environment {
     DOCKERHUB_CREDS = credentials('dockerhub')
+    registry = 'swamy877/jenkins-docker-hub'
   }
   stages {
     stage('Build') {
@@ -13,14 +14,17 @@ pipeline {
         sh 'docker build -t swamy877/jenkins-docker-hub .'
       }
     }
-    stage('Login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDS_PSW | docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
-      }
-    }
+    // stage('Login') {
+    //   steps {
+    //     sh 'echo $DOCKERHUB_CREDS_PSW | docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
+    //   }
+    // }
     stage('Push') {
       steps {
-        sh 'docker push swamy877/jenkins-docker-hub'
+        script {
+            docker.withRegistry( '', DOCKERHUB_CREDS ) {
+            dockerImage.push()
+        }
       }
     }
   }
