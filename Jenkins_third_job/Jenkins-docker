@@ -4,14 +4,14 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDS = credentials('docker-hub')
-    registry = 'swamy877/jenkins-docker-hub'
+    DOCKERHUB_CREDS = credentials('swamy-docker-hub')
+    // registry = 'swamy877/jenkins-docker-aws'
   }
   stages {
     stage('Build') {
       steps {
         sh 'echo "Current working directory:" && pwd && ls -ltr .'
-        sh 'docker build -t swamy877/jenkins-docker-hub .'
+        sh 'docker build -t swamy877/jenkins-docker-aws .'
       }
     }
     stage('Login') {
@@ -26,7 +26,7 @@ pipeline {
         //         dockerImage.push()
         //     }
         // }
-        sh 'docker push swamy877/jenkins-docker-hub'
+        sh 'docker push swamy877/jenkins-docker-aws'
       }
     }
   }
