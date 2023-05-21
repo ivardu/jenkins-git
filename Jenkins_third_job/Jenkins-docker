@@ -26,6 +26,7 @@ pipeline {
         //         dockerImage.push()
         //     }
         // }
+        // 
         sh 'docker push swamy877/jenkins-docker-aws'
       }
     }
