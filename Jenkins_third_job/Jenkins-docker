@@ -11,7 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'echo "Current working directory:" && pwd && ls -ltr .'
-        sh 'docker build -t swamy877/jenkins-docker-aws .'
+        sh 'docker build -t swamy877/alpine-docker .'
       }
     }
     stage('Login') {
@@ -27,7 +27,7 @@ pipeline {
         //     }
         // }
         // 
-        sh 'docker push swamy877/jenkins-docker-aws'
+        sh 'docker push swamy877/alpine-docker'
       }
     }
   }
