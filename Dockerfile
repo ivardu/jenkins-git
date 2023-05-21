@@ -1,2 +1,2 @@
-FROM apline:latest
+FROM alpine:latest
 COPY . /tmp
